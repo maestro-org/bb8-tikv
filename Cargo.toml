@@ -20,3 +20,5 @@ tikv-client = { git = "https://github.com/tikv/client-rust" }
 mock-tikv = { git = "https://github.com/tikv/client-rust" }
 tokio = { version = "1.0", features = [ "sync", "rt-multi-thread", "macros" ] }
 
+[[example]]
+name = "raw"

@@ -121,7 +121,7 @@ mod tests {
         let clients: Vec<_> = join_all(clients_fut)
             .await
             .drain(..)
-            .map(|e| e.unwrap())
+            .map(Result::unwrap)
             .collect();
         let futures: Vec<_> = clients
             .iter()
@@ -149,7 +149,7 @@ mod tests {
         let clients: Vec<_> = join_all(clients_fut)
             .await
             .drain(..)
-            .map(|e| e.unwrap())
+            .map(Result::unwrap)
             .collect();
         let futures: Vec<_> = clients
             .iter()

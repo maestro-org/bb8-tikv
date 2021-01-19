@@ -1,0 +1,22 @@
+[package]
+name = "bb8-tivk"
+version = "0.0.0"
+authors = ["Stepan Henek"]
+edition = "2018"
+description = "bb8 adapter for TiKV client"
+license = "MIT"
+readme = "README.md"
+keywords = ["bb8", "connection pool"]
+repository = "https://github.com/shenek/bb8-tikv"
+categories = ["Database interfaces"]
+
+[dependencies]
+async-trait = "0.1"
+bb8 = "0.7"
+futures = "0.3"
+tikv-client = { git = "https://github.com/tikv/client-rust" }
+
+[dev-dependencies]
+mock-tikv = { git = "https://github.com/tikv/client-rust" }
+tokio = { version = "1.0", features = [ "sync", "rt-multi-thread", "macros" ] }
+

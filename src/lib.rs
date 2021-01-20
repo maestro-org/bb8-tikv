@@ -6,16 +6,21 @@ pub use tikv_client::{Config, Error, RawClient, Result as TiKVResult, Transactio
 use async_trait::async_trait;
 use bb8::{ManageConnection, PooledConnection};
 
-/// TODO
-#[derive(Clone)]
+/// A `bb8::ManageConnection` for `tikv_client::RawClient`
+#[derive(Clone, Debug)]
 pub struct TiKVRawConnectionManager {
     /// Raw client of TiKV
     config: Option<Config>,
+    /// Addresses of pd endpoints
     pd_endpoints: Vec<String>,
 }
 
 impl TiKVRawConnectionManager {
-    /// TODO
+    /// Create new raw connection manager
+    ///
+    /// # Arguments
+    /// * pd_endpoints - where to connect to pd server(s) (address:port)
+    /// * config - optional config of TiKV client
     pub fn new<S>(pd_endpoints: Vec<S>, config: Option<Config>) -> TiKVResult<Self>
     where
         S: Into<String>,
@@ -51,16 +56,21 @@ impl ManageConnection for TiKVRawConnectionManager {
     }
 }
 
-/// TODO
-#[derive(Clone)]
+/// A `bb8::ManageConnection` for `tikv_client::TransactionClient`
+#[derive(Clone, Debug)]
 pub struct TiKVTransactionalConnectionManager {
-    /// Raw client of TiKV
+    /// Config of TiKV client
     config: Option<Config>,
+    /// Addresses of pd endpoints
     pd_endpoints: Vec<String>,
 }
 
 impl TiKVTransactionalConnectionManager {
-    /// TODO
+    /// Create new transactional connection manager
+    ///
+    /// # Arguments
+    /// * pd_endpoints - where to connect to pd server(s) (address:port)
+    /// * config - optional config of TiKV client
     pub fn new<S>(pd_endpoints: Vec<S>, config: Option<Config>) -> TiKVResult<Self>
     where
         S: Into<String>,

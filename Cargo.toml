@@ -13,10 +13,10 @@ categories = ["Database interfaces"]
 [dependencies]
 async-trait = "0.1"
 bb8 = "0.7"
-futures = "0.3"
 tikv-client = { git = "https://github.com/tikv/client-rust" }
 
 [dev-dependencies]
+futures = "0.3"
 mock-tikv = { git = "https://github.com/tikv/client-rust" }
 tokio = { version = "1.0", features = [ "sync", "rt-multi-thread", "macros" ] }
 

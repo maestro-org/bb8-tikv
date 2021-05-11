@@ -1,6 +1,6 @@
 [package]
 name = "bb8-tivk"
-version = "0.0.0"
+version = "0.0.99"
 authors = ["Stepan Henek"]
 edition = "2018"
 description = "bb8 adapter for TiKV client"

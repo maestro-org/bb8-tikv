@@ -1,5 +1,5 @@
 use bb8::Pool;
-use bb8_tivk::TiKVRawConnectionManager;
+use bb8_tikv::TiKVRawConnectionManager;
 
 #[tokio::main]
 async fn main() {

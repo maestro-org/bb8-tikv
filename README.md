@@ -8,7 +8,7 @@
 ## Usage
 ```rust
 use bb8::Pool;
-use bb8_tivk::TiKVRawConnectionManager;
+use bb8_tikv::TiKVRawConnectionManager;
 
 async fn execute() {
     let pd_servers: Vec<String> = vec!["127.0.0.1:2379".into()];

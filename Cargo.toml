@@ -6,9 +6,9 @@ edition = "2018"
 description = "bb8 adapter for TiKV client"
 license = "MIT"
 readme = "README.md"
-keywords = ["bb8", "connection pool"]
+keywords = ["bb8", "pool", "tikv"]
 repository = "https://github.com/shenek/bb8-tikv"
-categories = ["Database interfaces"]
+categories = ["database"]
 
 [dependencies]
 async-trait = "0.1"

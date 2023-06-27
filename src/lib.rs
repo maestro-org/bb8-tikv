@@ -99,7 +99,7 @@ impl ManageConnection for TiKVTransactionalConnectionManager {
         }
     }
     async fn is_valid(&self, conn: &mut Self::Connection) -> Result<(), Self::Error> {
-        conn.begin_optimistic().await?;
+        conn.current_timestamp().await?;
         Ok(())
     }
 

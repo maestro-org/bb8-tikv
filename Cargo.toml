@@ -12,8 +12,8 @@ categories = ["database"]
 
 [dependencies]
 async-trait = "0.1"
-bb8 = "0.7"
-tikv-client = "0.1.0"
+bb8 = "0.8.1"
+tikv-client = { git = "https://github.com/jmhrpr/client-rust.git", branch = "dev" }
 
 [dev-dependencies]
 futures = "0.3"

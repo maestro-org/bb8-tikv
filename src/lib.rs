@@ -4,7 +4,7 @@ pub use bb8;
 pub use tikv_client::{Config, Error, RawClient, Result as TiKVResult, TransactionClient};
 
 use async_trait::async_trait;
-use bb8::{ManageConnection};
+use bb8::ManageConnection;
 
 /// A `bb8::ManageConnection` for `tikv_client::RawClient`
 #[derive(Clone, Debug)]
@@ -40,9 +40,9 @@ impl ManageConnection for TiKVRawConnectionManager {
 
     async fn connect(&self) -> Result<Self::Connection, Self::Error> {
         if let Some(config) = &self.config {
-            Ok(RawClient::new_with_config(self.pd_endpoints.clone(), config.clone(), None).await?)
+            Ok(RawClient::new_with_config(self.pd_endpoints.clone(), config.clone()).await?)
         } else {
-            Ok(RawClient::new(self.pd_endpoints.clone(), None).await?)
+            Ok(RawClient::new(self.pd_endpoints.clone()).await?)
         }
     }
 
@@ -91,11 +91,11 @@ impl ManageConnection for TiKVTransactionalConnectionManager {
     async fn connect(&self) -> Result<Self::Connection, Self::Error> {
         if let Some(config) = &self.config {
             Ok(
-                TransactionClient::new_with_config(self.pd_endpoints.clone(), config.clone(), None)
+                TransactionClient::new_with_config(self.pd_endpoints.clone(), config.clone())
                     .await?,
             )
         } else {
-            Ok(TransactionClient::new(self.pd_endpoints.clone(), None).await?)
+            Ok(TransactionClient::new(self.pd_endpoints.clone()).await?)
         }
     }
     async fn is_valid(&self, conn: &mut Self::Connection) -> Result<(), Self::Error> {

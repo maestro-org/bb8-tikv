@@ -13,7 +13,7 @@ categories = ["database"]
 [dependencies]
 async-trait = "0.1"
 bb8 = "0.8.1"
-tikv-client = { git = "https://github.com/jmhrpr/client-rust.git", branch = "jdev" }
+tikv-client = { git = "https://github.com/jmhrpr/client-rust.git", rev = "69862f0c37c26be8a67feeb9c7f73cb89ca96406" }
 # tikv-client = { path = "../client-rust" }
 
 [dev-dependencies]
